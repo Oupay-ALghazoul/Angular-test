@@ -1,0 +1,20 @@
+.user-list {
+    display: flex;
+
+    padding-bottom: 32px;
+    & > div {
+        margin-left: 16px;
+    }
+
+    &.h-list-scroll {
+        overflow: auto;
+    }
+    &.h-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    &.v-list {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

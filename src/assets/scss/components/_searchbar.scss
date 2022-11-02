@@ -1,0 +1,16 @@
+.search-bar {
+    label {
+        margin-right: 10px;
+    }
+    input {
+        transition: all 0.2s ease-in-out !important;
+        width: 180px;
+        font-size: 1.25rem !important;
+    }
+    input:focus {
+        box-shadow: 0px 2px 14px -6px $primary;
+        border-color: $primary;
+        outline: none;
+        width: calc( 210px + 10vw);
+    }
+}

@@ -1,0 +1,14 @@
+<a [routerLink]="['user', userInfo.id]" class="media user-card mt-4">
+  <img
+    class="user-img"
+    [src]="userInfo.avatar"
+    alt="Generic placeholder image"
+  />
+  <div class="media-body mx-3">
+    <h5 class="mt-0">{{ userInfo.first_name }} {{ userInfo.last_name }}</h5>
+    <p class="">
+      <img class="user-image" height="30" src="assets/svg/hash.svg" />
+      {{ userInfo.id }}
+    </p>
+  </div>
+</a>

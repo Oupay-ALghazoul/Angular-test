@@ -1,0 +1,84 @@
+<app-page-loader></app-page-loader>
+
+<div class="container">
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="row justify-content-center my-5">
+    <div
+      class="spinner-grow primary-spinner spinner-lg my-5"
+      role="status"
+    ></div>
+  </div>
+
+  <!--  -->
+  <div
+    *ngIf="(filteredUsers$ | async)?.length == 0"
+    class="row justify-content-center my-5"
+  >
+    <div class="text-center">
+      <img width="120" src="assets/svg/em-sad.svg" alt="" />
+      <p class="text-center">No Results!</p>
+    </div>
+  </div>
+
+  <!--  -->
+  <ng-container *ngIf="(filteredUsers$ | async)?.length != 0 && !isLoading">
+    <div class="my-2">
+      <button
+        (click)="setCardsDisplay('scroll-h-list')"
+        class="btn btn-primary ml-2"
+      >
+        <ion-icon name="grid"></ion-icon>
+      </button>
+      <button
+        (click)="setCardsDisplay('h-list')"
+        class="btn btn-primary ml-2 mx-1"
+      >
+        <ion-icon name="grid"></ion-icon>
+      </button>
+      <button
+        (click)="setCardsDisplay('v-list')"
+        class="btn btn-primary ml-2 mx-1"
+      >
+        <ion-icon name="list"></ion-icon>
+      </button>
+    </div>
+
+    <div
+      class="c-scroll user-list h-list-scroll"
+      [ngClass]="{ 'h-list-scroll': cardsDisplay == 'scroll-h-list' }"
+      [ngClass]="{ 'h-list': cardsDisplay == 'h-list' }"
+      [ngClass]="{ 'v-list': cardsDisplay == 'v-list' }"
+    >
+      <div
+        [ngClass]="{ 'col-lg-7 col-md-10': cardsDisplay === 'v-list' }"
+        class="col-10 col-md-5 col-lg-3"
+        *ngFor="let user of filteredUsers$ | async"
+      >
+        <user-card [userInfo]="user"></user-card>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Pagination  -->
+  <div
+    *ngIf="(filteredUsers$ | async)?.length != 0"
+    class="row justify-content-center mt-4"
+  >
+    <div class="col-auto">
+      <pagination
+        [(ngModel)]="currentPage"
+        pageBtnClass="btn-pagination"
+        [boundaryLinks]="true"
+        [totalItems]="totalItems"
+        [itemsPerPage]="itemsPerPage"
+        (numPages)="(totalPages)"
+        (pageChanged)="pageChanged($event)"
+        previousText="&lsaquo;"
+        nextText="&rsaquo;"
+        firstText="&laquo;"
+        lastText="&raquo;"
+      >
+      </pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+  <!--  -->
+  <div class="d-flex justify-content-end mx-5 mb-3">
+    <button (click)="back()" class="btn-back btn-primary">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+    </button>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="row justify-content-center my-5">
+    <div class="spinner-grow primary-spinner spinner-lg" role="status"></div>
+  </div>
+  
+  <!--  -->
+  <div *ngIf="!isLoading && user" class="d-flex flex-column user-details">
+    <div class="d-flex justify-content-end"></div>
+    <img class="user-img" [src]="user.avatar" alt="Generic placeholder image" />
+    <div class="media-body mt-5 mx-3">
+      <p class="text-center">
+        <img class="user-image" height="40" src="assets/svg/hash.svg" />
+        {{ user.id }}
+      </p>
+
+      <h2 class="">{{ user.first_name }} {{ user.last_name }}</h2>
+    </div>
+  </div>
+</div>

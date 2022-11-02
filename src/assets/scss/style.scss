@@ -1,0 +1,21 @@
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+//
+@import "common/_variables";
+@import "common/_general.scss";
+@import "common/_animation.scss";
+
+/*                 [Components ]                   		*/
+@import "components/_navbar";
+@import "components/_searchbar.scss";
+@import "components/_user-card.scss";
+
+/*                 [ Pages ]                   				*/
+
+@import "pages/_user-list.scss";
+@import "pages/_user-details.scss";
+
+/*                 [ UI ]                   */
+@import "ui/_buttons.scss";
+@import "ui/_spinner.scss";
+@import "ui/_media.scss";

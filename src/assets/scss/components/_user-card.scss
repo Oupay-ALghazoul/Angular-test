@@ -1,0 +1,29 @@
+.user-card {
+    align-items: center !important;
+    background-color: #f0f0f0;
+    padding: 8px 16px;
+    border-radius: 15px;
+    box-shadow: 0px 2px 14px -6px $primary;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    color: darken($primary, 10);
+
+    &:hover {
+        box-shadow: 0px 2px 14px -3px $primary;
+        transform: translateY(-6px);
+        color: darken($primary, 30);
+        background: lighten($primary, 70);
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    .user-img {
+        border-radius: 50%;
+        border: 2px solid $primary;
+        height: 100px;
+        width: 100px;
+        padding: 4px;
+    }
+}

@@ -1,0 +1,14 @@
+@keyframes testSwing {
+    0% {
+        transform: rotate(-20deg);
+    }
+    50% {
+        transform: rotate(20deg);
+    }
+    100% {
+        transform: rotate(-20deg);
+    }
+}
+.test-swing {
+    animation: testSwing 1s infinite linear;
+}
